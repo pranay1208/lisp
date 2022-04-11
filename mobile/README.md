@@ -1,4 +1,4 @@
-Running locally:
+## Running locally:
 
 Create a file called ip.js in the root directory and add the following line of code to it
 

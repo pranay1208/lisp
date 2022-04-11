@@ -70,3 +70,9 @@ This module contains the various scripts that were used in the research process 
 **[RawAudioSVM.m](./scripts/matlab/RawAudioSVM.m)** - This script is a precursor to `AudioFingerprint.m` because it naively utilises the entirety of the enhanced sound signal in training the SVM classifier. Due to this approach, the SVM was overfitted to the testing data and could not generate a satisfactory output with regards to the testing data.
 
 **[Signal_Testing.ipynb](./scripts/python/Signal_Testing.ipynb)** - This Jupyter notebook was a playground for implementing chirp generation, frequency filtering and matching filtration using Python libraries. This method was unsuccesfull because the Python libraries could not correctly handle multi-channel data and thus filtering data resulted in incorrect data.
+
+## Acknowledgements
+
+- This project was inspired by the research work conducted by Yu-Chih Tung and Kang G. Shin on the Echo Tag project.
+- This team would like to express their deepest gratitude to ZHANG, Yi for his input and assistance regarding all matters about Matlab and its audio-processing tooling
+- This project would not be possible without our supervisor Dr. Chenshu WU and his unparalleled support and guidance.
