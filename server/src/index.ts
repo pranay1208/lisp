@@ -3,8 +3,6 @@ import { writeFileSync } from "fs";
 import path from "path";
 import multer from "multer";
 
-// C:\Users\anujb\Desktop\FYPServer\src\index.ts
-
 const locationCounter: Record<string, number> = {}; // this is a record from string  to int
 
 const upload = multer();
