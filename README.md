@@ -37,6 +37,8 @@ Using the project comprises of 3 steps.
 
 3. Edit the `./scripts/AudioFigerprint.m` script's variables at the top to contain the appropriate paths and file prefix. Then run this script to train the SVM and get prediction results. This SVM can then be exported and used for future audio recordings
 
+## Directories
+
 ### [Mobile](./mobile/)
 
 ##### Audio-collecting mobile application
