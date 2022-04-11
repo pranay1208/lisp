@@ -1,8 +1,8 @@
 % ? This script trains the models with only 1000 samples after largest peak
 
 SAMPLE_RATE = 44.1e3;
-testingDir = "pranay/testing";
-checkingDir = "pranay/check";
+TRAINING_DIR = "pranay/testing";
+CHECKING_DIR = "pranay/check";
 CORRECT_FILE_PREFIX = "L1";
 
 
@@ -12,18 +12,17 @@ sLFM = phased.LinearFMWaveform('SampleRate',SAMPLE_RATE,'SweepBandwidth',12e3,'P
 coeff = getMatchedFilter(sLFM);
 
 % reading all testing data
-testFiles = dir(fullfile(testingDir, "*.m4a"));
-
-TOTAL_TEST_FILES = length(testFiles);
+trainingFiles = dir(fullfile(TRAINING_DIR, "*.m4a"));
+TOTAL_TRAINING_FILES = length(TRAINING_DIR)
 
 % Preallocate test data lavels
-testLabels = zeros(TOTAL_TEST_FILES, 1);
+testLabels = zeros(TOTAL_TRAINING_FILES, 1);
 testData = [];
 
 % Constructing testing data and labels
-for i = 1:TOTAL_TEST_FILES
-    baseFileName = testFiles(i).name;
-    fullFileName = fullfile(testingDir, baseFileName);
+for i = 1:TOTAL_TRAINING_FILES
+    baseFileName = trainingFiles(i).name;
+    fullFileName = fullfile(TRAINING_DIR, baseFileName);
     
     % Read audio
     filteredAudio = cleanAudio(fullFileName, coeff);
@@ -44,12 +43,12 @@ end
 svmModelLinear = fitcsvm(testData, testLabels, "KernelFunction","linear",...
     "Standardize", true, 'ClassNames', [0, 1]);
 
-disp("Done training SVM. Running checks with data from " + checkingDir);
+disp("Done training SVM. Running checks with data from " + CHECKING_DIR);
 
-checkingFiles = dir(fullfile(checkingDir, "*.m4a"));
+checkingFiles = dir(fullfile(CHECKING_DIR, "*.m4a"));
 for i = 1: length(checkingFiles)
     baseFileName = checkingFiles(i).name;
-    fileName = fullfile(checkingDir, baseFileName);
+    fileName = fullfile(CHECKING_DIR, baseFileName);
     
     if(startsWith(baseFileName, CORRECT_FILE_PREFIX))
         expectedText = "Expected to be a match";
