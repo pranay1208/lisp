@@ -1,4 +1,4 @@
-% This script trains the models with only n samples after largest peak
+% ? This script trains the models with only 1000 samples after largest peak
 
 SAMPLE_RATE = 44.1e3;
 testingDir = "pranay/testing";
@@ -47,7 +47,6 @@ svmModelLinear = fitcsvm(testData, testLabels, "KernelFunction","linear",...
 disp("Done training SVM. Running checks with data from " + checkingDir);
 
 checkingFiles = dir(fullfile(checkingDir, "*.m4a"));
-disp("Samples from peak: 1000")
 for i = 1: length(checkingFiles)
     baseFileName = checkingFiles(i).name;
     fileName = fullfile(checkingDir, baseFileName);
