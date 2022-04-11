@@ -69,6 +69,8 @@ This module contains the various scripts that were used in the research process 
 
 **[LinearWave.m](./scripts/matlab/LinearWave.m)** - This script is a playground for performing audio processing, enchancing and visualization. The following script was used to test the effects of performing frequency filters and implementing an effective matching filter. The results were then plotted and analyzed.
 
+**[PostPeakSample.m](./scripts/matlab/PostPeakSample.m)** - This script is an analysis tool that was used to determine how many samples to consider after the largest audio peak. Results were aggregated and used to construct visualizations of total accuracy. After satisfactory testing, it was decided that 1000 samples was an appropriate constraint to apply.
+
 **[RawAudioSVM.m](./scripts/matlab/RawAudioSVM.m)** - This script is a precursor to `AudioFingerprint.m` because it naively utilises the entirety of the enhanced sound signal in training the SVM classifier. Due to this approach, the SVM was overfitted to the testing data and could not generate a satisfactory output with regards to the testing data.
 
 **[Signal_Testing.ipynb](./scripts/python/Signal_Testing.ipynb)** - This Jupyter notebook was a playground for implementing chirp generation, frequency filtering and matching filtration using Python libraries. This method was unsuccesfull because the Python libraries could not correctly handle multi-channel data and thus filtering data resulted in incorrect data.
